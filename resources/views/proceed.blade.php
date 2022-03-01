@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div id="app">
-        @include('flash-message')
-        @yield('content')
+    @if ($message = Session::get('successMsg'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>    
+        <strong>{{ $message }}</strong>
     </div>
+    @endif
+  
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
